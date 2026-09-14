@@ -1,3 +1,4 @@
+//哈希表的算法待补充
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) 
