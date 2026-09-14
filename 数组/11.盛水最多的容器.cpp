@@ -10,6 +10,9 @@ public:
             area = (right - left) * min( height[left], height[right] );
             if ( area > max )
                 max = area;
+            /*思路：将短板向中间靠拢，因为短板决定水量。
+                若移动长板，则只会变小不会变大。
+                只有移动短板，水量才可能增长。即使减小也没关系，因为已经记录下来最大值。*/
             if ( height[left] <= height[right] )
                 ++left;
             else
