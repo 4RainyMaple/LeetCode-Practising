@@ -10,10 +10,13 @@ public:
 
         for ( int i = 0; i < len - 2; ++i )
         {
+            //查重
             if ( i > 0 && nums[i] == nums[i-1] )
                 continue;
+            
             int left = i + 1;
             int right = len - 1;
+            
             while ( left < right )
             {
                 thisSum = nums[i] + nums[left] + nums[right];
