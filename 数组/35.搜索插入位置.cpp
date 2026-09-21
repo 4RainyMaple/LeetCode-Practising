@@ -14,7 +14,7 @@ public:
                 left = mid + 1;
 
             else 
-                //mid左边可能还有符合条件的元素，往左筛查
+                //我们希望right迭代完成后成为<target的最大的数，故取等时也继续找左半区间
                 right = mid - 1;
         }
 
