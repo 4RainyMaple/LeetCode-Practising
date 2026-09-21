@@ -28,20 +28,11 @@ public:
             //若左半有序
             if ( nums[0] <= nums[mid] )
             /*关于为什么要取等：
-            nums = [3,1], target = 1
-            left = 0，right = 1，mid = 0
-            使用 <= 时：
-            - 3 <= 3 成立，进入左半有序的分支。
-            - target 不在 [3,3) 中，因此令 left = mid + 1 = 1。
-            - 下一轮找到 1，返回下标 1。
-            如果改成 <：
-            - 3 < 3 不成立，错误地进入右半有序的分支。
-            - 但此时 [3,1] 实际上并不有序。
-            - nums[mid] < target，即 3 < 1，不成立，于是令 right = mid - 1 = -1。
-            - 循环结束，错误地返回 -1。*/
+            只有两个元素时 mid = 1 ，此时左半边只有一个元素，肯定是有序的，
+            若跳过则没有机会再搜查左半边*/
             {
                 //判断target是否在左区间，开始折半区间
-                if ( nums[0] <= target && target < nums[mid] )
+                if ( nums[0] <= target && target < nums[mid] )    //注意左边要能取等，不然会漏掉nums[0]
                     right = mid - 1;
                 else
                     left = mid + 1;
@@ -51,7 +42,7 @@ public:
             else 
             {
                 //判断target是否在右区间，开始折半区间
-                if ( nums[mid] < target && target <= nums[len-1] )
+                if ( nums[mid] < target && target <= nums[len-1] )    //右边要取等，防止漏掉nums[len-1]
                     left = mid + 1;
                 else
                     right = mid - 1;
