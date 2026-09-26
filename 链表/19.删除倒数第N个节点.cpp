@@ -9,7 +9,9 @@ public:
             thisNode = thisNode->next;
 
         thisNode->next = thisNode->next->next;
-        return dummy->next;
+        ListNode * ans = dummy->next;
+        delete dummy;
+        return ans;
     }
 
 private:
