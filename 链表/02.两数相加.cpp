@@ -4,7 +4,7 @@ public:
         //先创建头结点和尾节点的指针，因为我们需要返回头指针而追加尾指针
         ListNode * head = nullptr;
         ListNode * tail = nullptr;
-        int carry = 0;  //进位
+        int carry = 0;  //用于判断是否进位，取值只有0和1
         //只要这两个表只要有一个不空就继续走
         while ( l1 != nullptr || l2 != nullptr )
         {
@@ -34,7 +34,7 @@ public:
         }
         //循环结束后再追加一次判断
         if ( carry > 0 )
-            tail->next = new ListNode(carry);
+            tail->next = new ListNode(carry);    //此时carry取值为1
         return head;
     }
 };
