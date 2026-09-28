@@ -1,7 +1,7 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        //先创建头结点和尾节点的指针
+        //先创建头结点和尾节点的指针，因为我们需要返回头指针而追加尾指针
         ListNode * head = nullptr;
         ListNode * tail = nullptr;
         int carry = 0;  //进位
@@ -22,7 +22,7 @@ public:
             //先开辟新的尾节点再移动尾指针
             else 
             {
-                tail->next = new ListNode( sum % 10 );
+                tail->next = new ListNode( sum % 10 );    //通过给尾指针下一个节点开辟内存实现追加
                 tail = tail->next;
             }
             carry = sum / 10;
