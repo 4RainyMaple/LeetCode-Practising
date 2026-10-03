@@ -12,25 +12,30 @@ public:
         ListNode * tail = nullptr;
         while ( list1 != nullptr && list2 != nullptr )
         {
-            int ele;
             if ( list1->val >= list2->val )
             {
-                ele = list2->val;
+            //处理初次进入循环的情况
+                if ( head == nullptr )
+                    head = tail = list2;    //注意不要新建节点，小题无所谓，大一点的内存直接爆了
+                else 
+                {
+                    tail->next = list2;
+                    tail = tail->next;
+                }
                 list2 = list2->next;
             }
             else 
             {
-                ele = list1->val;
+                if ( head == nullptr )
+                    head = tail = list1;
+                else 
+                {
+                    tail->next = list1;
+                    tail = tail->next;
+                }
                 list1 = list1->next;
             }
-            //处理初次进入循环的情况
-            if ( head == nullptr )
-                head = tail = new ListNode(ele);
-            else 
-            {
-                tail->next = new ListNode(ele);
-                tail = tail->next;
-            }
+            
         }
 
         //如果头指针还是空，说明有一个链表是空，返回非空链表即可
@@ -42,6 +47,7 @@ public:
             tail->next = list2;
         else 
             tail->next = list1;
+        
         return head;
     }
 };
