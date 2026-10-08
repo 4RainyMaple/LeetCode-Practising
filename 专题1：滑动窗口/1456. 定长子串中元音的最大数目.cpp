@@ -16,6 +16,8 @@ public:
 
             //在左滑窗离开前更新答案，否则可能丢失一个元音
             maxNum = max( maxNum, curNum );
+            if ( maxNum == k )    //优化：若达到最大直接返回
+                break;
 
             //左滑窗离开
             if ( s[left] == 'a' || s[left] == 'e' || s[left] == 'i' || s[left] == 'o' || s[left] == 'u' )
