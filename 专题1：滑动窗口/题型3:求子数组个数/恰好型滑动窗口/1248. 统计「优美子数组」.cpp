@@ -15,7 +15,7 @@ public:
                 cnt -= nums[left++] % 2;
             
             if ( cnt >= k )
-                ans += left + 1;
+                ans += left + 1;    //当前 left 也是符合条件的
         }
         return ans;
     }
